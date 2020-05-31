@@ -1,2 +1,2 @@
 # VacationBooking
-java project that i developed in tenth grade
+java project that, developed in tenth grade.
