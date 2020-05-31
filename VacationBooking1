@@ -1,0 +1,692 @@
+import java.util.*;
+public class VacationBooking
+{
+    public static Scanner sc;
+    public static Scanner sc2;
+    
+    String modeOfTransport;
+    String modeOfTransport2;
+    String country;
+    int noOfTickets, duration;
+    int check, check2;
+    int typeOfTrip;
+    String destinationCity, sourceCity, answer1, name, dateOfDeparture;
+    int noOfRoomsK, noOfRoomsQ, noOfRoomsS, noOfRoomsD, noOfRooms;
+        
+    void VacationBooking()
+    {
+        modeOfTransport="";
+        modeOfTransport2="";
+        country="";
+        noOfTickets=0;
+        check=0;
+        check2=0;
+        typeOfTrip=0;
+        destinationCity=""; sourceCity="";
+        duration=0;
+        dateOfDeparture="";
+    }
+    public static void main ()
+    {
+        VacationBooking VC1= new VacationBooking();
+        VC1.IntroductionToAgency();
+        VC1.BookOutgoingTransport();
+        VC1.BookReturnTransport();
+        VC1.BookHotel();
+        VC1.ItineraryBuilding();
+    }
+    
+    public void IntroductionToAgency()
+    {
+        System.out.println("DELFINO TRAVEL AGENCY:");
+        System.out.println("South India-based travel agency. Offering transportation and hotel booking for tourism and traveling in South");
+        System.out.println("India's 4 biggest cities (Bengaluru, Pondicherry, Chennai, and Hyderabad. Offering service worldwide.");
+        System.out.println("Please enter your name.");
+        sc = new Scanner (System.in);
+        name= sc.nextLine();
+        System.out.println("Please enter your country.");
+        country= sc.nextLine();
+        System.out.println("Please enter the city you are planning to travel to: Bengaluru, Hyderabad, Pondicherry, or Chennai.");
+        destinationCity= sc.nextLine();
+        sc2= new Scanner (System.in);
+        System.out.println("Please enter the number of days your vacation will be.");
+        duration= sc2.nextInt();
+        if ((country.toLowerCase()).equals("india"))
+        {
+            typeOfTrip=1;
+        }
+        else
+        {
+            typeOfTrip=2;
+        }
+    }
+    
+    public void BookOutgoingTransport()
+    {
+        System.out.println();
+        System.out.println();
+        System.out.println("OUTGOING TRANSPORT BOOKING:");
+        System.out.println();
+        if (typeOfTrip==2)
+        {
+            System.out.println("Please enter your preferred mode of transport, for your arrival: flight, cruise, train.");
+            modeOfTransport= sc.nextLine();
+        }
+        else if (typeOfTrip==1)
+        {
+            System.out.println("Please enter your preferred mode of transport, for your arrival: flight, bus, car, train.");
+            modeOfTransport= sc.nextLine();
+        }
+        if ((modeOfTransport.toLowerCase()).equals("flight"))
+        {
+            check=1;
+        }
+        else if ((modeOfTransport.toLowerCase()).equals("bus"))
+        {
+            check=2;
+        }
+        else if ((modeOfTransport.toLowerCase()).equals("car"))
+        {
+            check=3;
+        }
+        else if ((modeOfTransport.toLowerCase()).equals("train"))
+        {
+            check=4;
+        }
+        else if ((modeOfTransport.toLowerCase()).equals("cruise"))
+        {
+            check=5;
+        }
+        switch (check)
+        {
+            case 1:
+            System.out.println("How many tickets do you want to book?");
+            noOfTickets= VacationBooking.sc2.nextInt();
+            System.out.print("");
+            System.out.println("Which airline would you like to book?");
+            String airLine= VacationBooking.sc.nextLine();
+            System.out.println("What class of flight would you like to book?");
+            String flightClass= VacationBooking.sc.nextLine();
+            System.out.println("Which city is the airport you will be departing from located?");
+            sourceCity= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+sourceCity+"? (dd/mm/yyyy)");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" tickets in "+flightClass+" of "+airLine+" have been booked on "+dateOfDeparture+" from "+sourceCity+" to "+destinationCity+".");
+            break;
+            
+            case 2:
+            System.out.println("How many tickets do you want to book?");
+            noOfTickets= VacationBooking.sc2.nextInt();
+            System.out.print("");
+            System.out.println("Which bus company would you like to book?");
+            String busCompany= VacationBooking.sc.nextLine();
+            System.out.println("Which city is the bus stop you will leave from in?");
+            sourceCity= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+sourceCity+"? (dd/mm/yyyy)");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" tickets in "+busCompany+" have been booked on "+dateOfDeparture+" from "+sourceCity+" to "+destinationCity+".");
+            break;
+            
+            case 3:
+            System.out.println("How many cars (8 seaters) do you want to book?");
+            noOfTickets= VacationBooking.sc2.nextInt();
+            System.out.print("");
+            System.out.println("Which city are you leaving from?");
+            sourceCity= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+sourceCity+"? (dd/mm/yyyy)");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" cars have been booked on "+dateOfDeparture+" from "+sourceCity+" to "+destinationCity+".");
+            break;
+            
+            case 4:
+            System.out.println("How many tickets do you want to book?");
+            noOfTickets= VacationBooking.sc2.nextInt();
+            System.out.print("");
+            System.out.println("Would you like to book an AC compartment, or a non AC compartment?");
+            String ACfacility= VacationBooking.sc.nextLine();
+            System.out.println("What class of train would you like to book?");
+            String trainClass= VacationBooking.sc.nextLine();
+            System.out.println("Which city is the train station you will be departing from located?");
+            sourceCity= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+sourceCity+"? (dd/mm/yyyy)");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" tickets in "+trainClass+" of "+ACfacility+" have been booked on "+dateOfDeparture+" from "+sourceCity+" to "+destinationCity+".");
+            break;
+            
+            case 5:
+            System.out.println("How many tickets do you want to book?");
+            noOfTickets= VacationBooking.sc2.nextInt();
+            System.out.print("");
+            System.out.println("Which cruise line would you like to book?");
+            String cruiseLine= VacationBooking.sc.nextLine();
+            System.out.println("What class would you like to book?");
+            String cruiseClass= VacationBooking.sc.nextLine();
+            System.out.println("Which city will you be departing from?");
+            sourceCity= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+sourceCity+"? (dd/mm/yyyy)");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" tickets in "+cruiseClass+" of "+cruiseLine+" have been booked on "+dateOfDeparture+" from "+sourceCity+" to "+destinationCity+".");
+            break;
+            
+            default:
+            System.out.println("Invalid entry.");
+        }
+    }
+    
+    public void BookReturnTransport()
+    {
+        System.out.println();
+        System.out.println();
+        System.out.println("RETURN TRANSPORT BOOKING:");
+        System.out.println();
+        if (typeOfTrip==2)
+        {
+            System.out.println("Please enter your preferred mode of transport, for your return: flight, cruise, train.");
+            modeOfTransport2= sc.nextLine();
+        }
+        else if (typeOfTrip==1)
+        {
+            System.out.println("Please enter your preferred mode of transport, for your return: flight, bus, car, train.");
+            modeOfTransport2= sc.nextLine();
+        }
+        if ((modeOfTransport2.toLowerCase()).equals("flight"))
+        {
+            check2=1;
+        }
+        else if ((modeOfTransport2.toLowerCase()).equals("bus"))
+        {
+            check2=2;
+        }
+        else if ((modeOfTransport2.toLowerCase()).equals("car"))
+        {
+            check2=3;
+        }
+        else if ((modeOfTransport2.toLowerCase()).equals("train"))
+        {
+            check2=4;
+        }
+        else if ((modeOfTransport2.toLowerCase()).equals("cruise"))
+        {
+            check2=5;
+        }
+        switch (check2)
+        {
+            case 1:
+            System.out.println("Which airline would you like to book?");
+            String airLine= VacationBooking.sc.nextLine();
+            System.out.println("What class of flight would you like to book?");
+            String flightClass= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+destinationCity+"? (dd/mm/yyyy)");
+            String dateOfDeparture2= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" return flight(s) in "+airLine+" in "+flightClass+" on "+dateOfDeparture+" from "+destinationCity+" to "+sourceCity+" have been booked.");
+            break;
+            
+            case 2:
+            System.out.println("Which bus company would you like to book?");
+            String busCompany= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+destinationCity+"? (dd/mm/yyyy)");
+            dateOfDeparture2= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" return flight(s) in "+busCompany+" on "+dateOfDeparture+" from "+destinationCity+" to "+sourceCity+" have been booked.");
+            break;
+            
+            case 3:
+            System.out.println("What date would you like to depart from "+destinationCity+"? (dd/mm/yyyy)");
+            dateOfDeparture2= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" return car(s) from "+destinationCity+" to "+sourceCity+" on "+dateOfDeparture+" have been booked.");
+            break;
+            
+            case 4:
+            System.out.println("Would you like to book an AC compartment, or a non AC compartment?");
+            String ACfacility= VacationBooking.sc.nextLine();
+            System.out.println("What class of train would you like to book?");
+            String trainClass= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+destinationCity+"? (dd/mm/yyyy)");
+            dateOfDeparture2= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" return train ticket(s) from "+destinationCity+" to "+sourceCity+" with "+ACfacility+" in "+trainClass+" on "+dateOfDeparture+" have been booked.");
+            break;
+            
+            case 5:
+            System.out.println("Which cruise line would you like to book?");
+            String cruiseLine= VacationBooking.sc.nextLine();
+            System.out.println("What class would you like to book?");
+            String cruiseClass= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+destinationCity+"? (dd/mm/yyyy)");
+            dateOfDeparture2= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" return cruise seat(s) from "+destinationCity+" to "+sourceCity+" have been booked.");
+            break;
+            
+            default:
+            System.out.println("Invalid entry.");
+        }
+    }
+    
+    public void BookHotel()
+    {
+        System.out.println();
+        System.out.println();
+        System.out.println("HOTEL RESERVATION:");
+        System.out.println();
+        System.out.println("How many days do you require to stay at the hotel?");
+        String noOfDays= VacationBooking.sc.nextLine();
+        do
+        {
+            System.out.println("What kind of room do you wish to book? (king, queen, single, double)");
+            String roomType= VacationBooking.sc.nextLine();
+            System.out.println("How many such rooms do you require?");
+            noOfRooms= VacationBooking.sc2.nextInt();
+            if ((roomType.toLowerCase()).equals("queen"))
+            {
+                noOfRoomsQ=noOfRooms;
+            }
+            else if ((roomType.toLowerCase()).equals("king"))
+            {
+                noOfRoomsK=noOfRooms;
+            }
+            else if ((roomType.toLowerCase()).equals("single"))
+            {
+                noOfRoomsS=noOfRooms;
+            }
+            else if ((roomType.toLowerCase()).equals("double"))
+            {
+                noOfRoomsD=noOfRooms;
+            }
+            System.out.println("Do you want to book any rooms of a different category?(yes/no)?");
+            answer1= VacationBooking.sc.nextLine();
+        }
+        while ((answer1.toLowerCase()).equals("yes"));
+        
+        System.out.println("Which hotel do you want to stay in?");
+        String hotelName= VacationBooking.sc.nextLine();
+        System.out.println("Do you want air-conditioned rooms?");
+        String ACFacility= VacationBooking.sc.nextLine();
+        System.out.println("Do you want room service to be provided?");
+        String roomService= VacationBooking.sc.nextLine();
+        System.out.println("Do you want meals to be provided by the hotel?");
+        String meals= VacationBooking.sc.nextLine();
+        
+        if (noOfRoomsK>=1)
+        {
+            System.out.print(noOfRoomsK+" king room(s) have been booked, ");
+        }
+        if (noOfRoomsQ>=1)
+        {
+            System.out.print(noOfRoomsQ+" queen room(s) have been booked, ");
+        }
+        if (noOfRoomsS>=1)
+        {
+            System.out.print(noOfRoomsS+" single room(s) have been booked, ");
+        }
+        if (noOfRoomsD>=1)
+        {
+            System.out.print(noOfRoomsD+" double room(s) have been booked, ");
+        }
+        System.out.print("with ");
+        if ((ACFacility.toLowerCase()).equals("yes"))
+        {
+            System.out.print("air conditioning, and ");
+        }
+        if ((roomService.toLowerCase()).equals("yes"))
+        {
+            System.out.print("room service, and ");
+        }
+        if ((meals.toLowerCase()).equals("yes"))
+        {
+            System.out.print("provided meals, and ");
+        }
+        System.out.println();
+        System.out.print("a welcoming atmosphere, for "+noOfDays+" days at "+hotelName+".");
+    }
+    
+    public void ItineraryBuilding()
+    {
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        
+        System.out.println("CHOOSING ITINERARY:");
+        System.out.println();
+        System.out.println();
+        System.out.println("Popular tourist attractions in "+(destinationCity.toUpperCase())+":");
+        System.out.println();
+        int decision;
+        String attractionsHyderabad[]= {"Charminar", "Golkonda", "Hussain Sagar", "Ramoji Film City", "Salar Jung Museum", "Chowmahalla Palace", "Nehru Zoological Park", "Birla Mandir", "Buddha Statue of Hyderabad", "Osman Sagar"};
+        String attractionsBengaluru[]= {"Lal Bagh", "Cubbon Park", "Bannerghatta National Park", "Bangalore Palace", "Tipu Sultan's Summer Palace", "ISKCON Temple Bangalore", "Vidhana Soudha", "Nandi Temple", "Ulsoor", "Lumbini Gardens"};
+        String attractionsPondicherry[]= {"Promenade Beach", "Arulmigu Manakula Vinayagar Temple", "Basilica of the Sacred Heart of Jesus", "Rock Beach", "Bharathi Park", "French War Memorial", "Immaculate Conception Cathedral", "Botanical Garden", "Aayi Mandapam", "Pondicherry Museum"};
+        String attractionsChennai[]= {"Marina Beach", "Kapaleeshwarar Temple", "Government Museum, Chennai", "St.Thomas Cathedral Basilica", "Fort St. George", "Edward Elliot's Beach", "Guindy National Park", "Dakshina Chitra", "Queen's Land", "Semmozhi Poonga"};
+        String itineraryFinal[]= new String[10];
+        if ((destinationCity.toLowerCase()).equals("hyderabad"))
+        {
+            for (int i=0; i<10; i++)
+            {
+                if (i==0)
+                {
+                    System.out.println("1. "+attractionsHyderabad[i]+":");
+                    System.out.println("Iconic mosque with 4 minarets & arches.");
+                    System.out.println("Iconic 16th-century mosque with 4 grand arches, 48m tall minarets and views over the Laad Bazaar.");
+                }
+                if (i==1)
+                {
+                    System.out.println("2. "+attractionsHyderabad[i]+":");
+                    System.out.println("Fortress complex famed for acoustics.");
+                    System.out.println("Capital of a kingdom that flourished from the 14th to 16th century, with 87 semi-circular bastions.");
+                }
+                if (i==2)
+                {
+                    System.out.println("3. "+attractionsHyderabad[i]+":");
+                    System.out.println("Heart-shaped lake with a Buddha statue.");
+                    System.out.println("A large Buddha monument rises atop a giant rock in the midst of this heart-shaped, urban lake.");
+                }
+                if (i==3)
+                {
+                    System.out.println("4. "+attractionsHyderabad[i]+":");
+                    System.out.println("Vast film studio & entertainment complex.");
+                    System.out.println("The world's largest film studio offering tours, live shows, on-site theme park and adventure zone.");
+                }
+                if (i==4)
+                {
+                    System.out.println("5. "+attractionsHyderabad[i]+":");
+                    System.out.println("Varied art & antiques from Asia & Europe.");
+                    System.out.println("Former art collection of the Salar Jung family from around the world, now a museum.");
+                }
+                if (i==5)
+                {
+                    System.out.println("6. "+attractionsHyderabad[i]+":");
+                    System.out.println("Restored palace complex & events venue.");
+                    System.out.println("Persian-style palaces with an opulent Durbar hall in 12-acre grounds open for events and receptions.");
+                }
+                if (i==6)
+                {
+                    System.out.println("7. "+attractionsHyderabad[i]+":");
+                    System.out.println("Massive animal park with safari rides.");
+                    System.out.println("Iconic 16th-century mosque with 4 grand arches, 48m tall minarets and views over the Laad Bazaar.");
+                }
+                if (i==7)
+                {
+                    System.out.println("8. "+attractionsHyderabad[i]+":");
+                    System.out.println("Hilltop white marble Hindu temple.");
+                    System.out.println("Imposing, hilltop Hindu temple built of white marble, with towers, shrines and interior carvings.");
+                }
+                if (i==8)
+                {
+                    System.out.println("9. "+attractionsHyderabad[i]+":");
+                    System.out.println("Granite buddha statue on its own island.");
+                    System.out.println("Monolith of Gautama Buddha on its own island in Hussain Sagar lake, which can be reached by boat.");
+                }
+                if (i==9)
+                {
+                    System.out.println("10. "+attractionsHyderabad[i]+":");
+                    System.out.println("Urban reservoir lake & picnic spot.");
+                    System.out.println("Large city reservoir with park-like space popular for picnicking & viewing of sunrises & sunsets.");
+                }
+                System.out.println();
+            }
+            for (int i=0; i<duration; i++)
+            {
+                System.out.println("Please enter the number of the attraction you'd like to visit on day "+(i+1)+". (enter 0 to opt out of a tourist attraction visit on this day.)");
+                decision= sc2.nextInt();
+                if (decision>0)
+                {
+                    itineraryFinal[i]= attractionsChennai[(decision-1)];
+                }
+                else
+                {
+                    itineraryFinal[i]= ("Nothing is planned with Delfino Travel Agency for this day.");
+                } 
+            }
+        }
+        
+        if ((destinationCity.toLowerCase()).equals("pondicherry"))
+        {
+            for (int i=0; i<10; i++)
+            {
+                if (i==0)
+                {
+                    System.out.println("1. "+attractionsPondicherry[i]+":");
+                    System.out.println("Rocky beachfront with a promenade.");
+                    System.out.println("Strip of rocky shoreline in a populous urban area with a promenade, a war memorial & a park.");
+                }
+                if (i==1)
+                {
+                    System.out.println("2. "+attractionsPondicherry[i]+":");
+                    System.out.println("Hindu temple with elephant blessings.");
+                    System.out.println("Vibrant Hindu temple known for its elephant blessings, ornately carved stone walls & golden chariot.");
+                }
+                if (i==2)
+                {
+                    System.out.println("3. "+attractionsPondicherry[i]+":");
+                    System.out.println("Tranquil, Gothic-style Catholic church.");
+                    System.out.println("Gothic-style Catholic church in a peaceful setting with stained-glass panels of Biblical scenes.");
+                }
+                if (i==3)
+                {
+                    System.out.println("4. "+attractionsPondicherry[i]+":");
+                    System.out.println("Scenic beach popular in the evening.");
+                    System.out.println("Bordered by a street with restaurants, this scenic, rocky beach draws crowds during the evening.");
+                }
+                if (i==4)
+                {
+                    System.out.println("5. "+attractionsPondicherry[i]+":");
+                    System.out.println("Urban park with a monument & playground.");
+                    System.out.println("Landscaped park featuring a Greco-Roman arch structure, plus flowers, a play area & fountains.");
+                }
+                if (i==5)
+                {
+                    System.out.println("6. "+attractionsPondicherry[i]+":");
+                    System.out.println("War memorial.");
+                }
+                if (i==6)
+                {
+                    System.out.println("7. "+attractionsPondicherry[i]+":");
+                    System.out.println("Majestic, 300-year-old Jesuit church.");
+                    System.out.println("Portuguese-style church with white & yellow columns & a gold statue, offering bilingual services.");
+                }
+                if (i==7)
+                {
+                    System.out.println("8. "+attractionsPondicherry[i]+":");
+                    System.out.println("French-style plots in a historic setting.");
+                    System.out.println("Botanical garden built by French colonists on 22 acres with themed plots, an aquarium & train rides.");
+                }
+                if (i==8)
+                {
+                    System.out.println("9. "+attractionsPondicherry[i]+":");
+                    System.out.println("Monument, architecture, and history.");
+                    System.out.println("Aayi Mandapam is a white monument in Pondicherry, India built during the time of Napoleon III, Emperor of France.");
+                }
+                if (i==9)
+                {
+                    System.out.println("10. "+attractionsPondicherry[i]+":");
+                    System.out.println("Museum with ancient bronze sculptures.");
+                    System.out.println("Quaint museum known for its rare sculpture collection, including ancient bronze & stone artifacts.");
+                }
+                System.out.println();
+            }
+            for (int i=0; i<duration; i++)
+            {
+                System.out.println("Please enter the number of the attraction you'd like to visit on day "+(i+1)+". (enter 0 to opt out of a tourist attraction visit on this day.)");
+                decision= sc2.nextInt();
+                if (decision>0)
+                {
+                    itineraryFinal[i]= attractionsChennai[(decision-1)];
+                }
+                else
+                {
+                    itineraryFinal[i]= ("Nothing is planned with Delfino Travel Agency for this day.");
+                }
+            }
+        }
+        
+        if ((destinationCity.toLowerCase()).equals("bengaluru"))
+        {
+            for (int i=0; i<10; i++)
+            {
+                if (i==0)
+                {
+                    System.out.println("1. "+attractionsBengaluru[i]+":");
+                    System.out.println("Landscaped gardens & famous glasshouse.");
+                    System.out.println("Botanical garden with an aquarium & glasshouse designed to mimic London's former Crystal Palace.");
+                }
+                else if (i==1)
+                {
+                    System.out.println("2. "+attractionsBengaluru[i]+":");
+                    System.out.println("Lush green space with many activities.");
+                    System.out.println("Established in 1870, this vibrant city park has walking paths, landscaped gardens & play areas.");
+                }
+                else if (i==2)
+                {
+                    System.out.println("3. "+attractionsBengaluru[i]+":");
+                    System.out.println("Expansive national park with animals.");
+                    System.out.println("Vast national reserve featuring a zoo, safari park, butterfly conservatory & animal rescue center.");
+                }
+                else if (i==3)
+                {
+                    System.out.println("4. "+attractionsBengaluru[i]+":");
+                    System.out.println("Royal residence open for visits & events.");
+                    System.out.println("Modern royal palace modeled on Windsor Castle offering tours, outdoor concerts & an amusement park.");
+                }
+                else if (i==4)
+                {
+                    System.out.println("5. "+attractionsBengaluru[i]+":");
+                    System.out.println("Elegant structure with sculpted grounds.");
+                    System.out.println("This ornate summer home of a Mughal emperor now offers scenic grounds & a small historical exhibit.");
+                }
+                else if (i==5)
+                {
+                    System.out.println("6. "+attractionsBengaluru[i]+":");
+                    System.out.println("Sprawling Hare Krishna temple complex.");
+                    System.out.println("Expansive, modern Hare Krishna temple campus, including shrines, food stalls & souvenir shops.");
+                }
+                else if (i==6)
+                {
+                    System.out.println("7. "+attractionsBengaluru[i]+":");
+                    System.out.println("Grand state government office building.");
+                    System.out.println("Iconic 16th-century mosque with 4 grand arches, 48m tall minarets and views over the Laad Bazaar.");
+                }
+                else if (i==7)
+                {
+                    System.out.println("8. "+attractionsBengaluru[i]+":");
+                    System.out.println("Hilltop white marble Hindu temple.");
+                    System.out.println("Massive, architecturally notable building housing the state legislative chambers.");
+                }
+                else if (i==8)
+                {
+                    System.out.println("9. "+attractionsBengaluru[i]+":");
+                    System.out.println("Old Hindu temple to sacred bull.");
+                    System.out.println("This 16th-century Hindu temple is dedicated to the sacred bull Nandi, with a huge statue of him.");
+                }
+                else if (i==9)
+                {
+                    System.out.println("10. "+attractionsBengaluru[i]+":");
+                    System.out.println("Ancient temples, chic shops & lake walks.");
+                    System.out.println("Narrow lanes wind past ancient temples in Ulsoor, an old neighborhood near the city center. Namesake Ulsoor Lake is popular for boating and has a walking trail.");
+                }
+                System.out.println();
+            }
+            for (int i=0; i<duration; i++)
+            {
+                System.out.println("Please enter the number of the attraction you'd like to visit on day "+(i+1)+". (enter 0 to opt out of a tourist attraction visit on this day.)");
+                decision= sc2.nextInt();
+                if (decision>0)
+                {
+                    itineraryFinal[i]= attractionsChennai[(decision-1)];
+                }
+                else
+                {
+                    itineraryFinal[i]= ("Nothing is planned with Delfino Travel Agency for this day.");
+                }
+            }
+        }
+        
+        if ((destinationCity.toLowerCase()).equals("chennai"))
+        {
+            for (int i=0; i<10; i++)
+            {
+                if (i==0)
+                {
+                    System.out.println("1. "+attractionsChennai[i]+":");
+                    System.out.println("Recreational shoreline with food vendors.");
+                    System.out.println("Bustling urban beach featuring a long shoreline for basking & a variety of food stalls & shops.");
+                }
+                if (i==1)
+                {
+                    System.out.println("2. "+attractionsChennai[i]+":");
+                    System.out.println("Temple of Shiva built in Dravidian style.");
+                    System.out.println("Colorful Dravidian-style temple dedicated to Shiva, established in the 7th century & later rebuilt.");
+                }
+                if (i==2)
+                {
+                    System.out.println("3. "+attractionsChennai[i]+":");
+                    System.out.println("Bronzes, Indian art & a children's area.");
+                    System.out.println("State collections including Indian art & sculpture, bronzes, anthropology & a children's section..");
+                }
+                if (i==3)
+                {
+                    System.out.println("4. "+attractionsChennai[i]+":");
+                    System.out.println("Basilica & shrine of St. Thomas Apostle.");
+                    System.out.println("Cathedral basilica rebuilt in 1896 in neo-Gothic style, at the site of St. Thomas Apostle's tomb..");
+                }
+                if (i==4)
+                {
+                    System.out.println("5. "+attractionsChennai[i]+":");
+                    System.out.println("Saint George, museum, and history.");
+                    System.out.println("Fort St George is the first English fortress in India, founded in 1644 at the coastal city of Madras, the modern city of Chennai.");
+                }
+                if (i==5)
+                {
+                    System.out.println("6. "+attractionsChennai[i]+":");
+                    System.out.println("Beach.");
+                    System.out.println("Elliot's Beach is located in Besant Nagar, Chennai, India. It forms the end-point of the Marina Beach shore, and is named after Edward Elliot, onetime chief magistrate and superintendent of police, Madras.");
+                }
+                if (i==6)
+                {
+                    System.out.println("7. "+attractionsChennai[i]+":");
+                    System.out.println("Green space with animals & a playground.");
+                    System.out.println("Large, tree-filled park with a variety of animals & greenery, plus a children's play area.");
+                }
+                if (i==7)
+                {
+                    System.out.println("8. "+attractionsChennai[i]+":");
+                    System.out.println("Heritage museum with exhibits & events.");
+                    System.out.println("Cross cultural museum featuring 18 historical houses, along with art, crafts & performances.");
+                }
+                if (i==8)
+                {
+                    System.out.println("9. "+attractionsChennai[i]+":");
+                    System.out.println("Amusement & water park with many rides.");
+                    System.out.println("Theme park featuring roller coasters, family rides & water attractions, including a wave pool.");
+                }
+                if (i==9)
+                {
+                    System.out.println("10. "+attractionsChennai[i]+":");
+                    System.out.println("Botanical garden with many plants.");
+                    System.out.println("Serene, 20-acre botanical garden with over 500 species of plants, including exotic varieties.");
+                }
+                System.out.println();
+            }
+            for (int i=0; i<duration; i++)
+            {
+                System.out.println("Please enter the number of the attraction you'd like to visit on day "+(i+1)+". (enter 0 to opt out of a tourist attraction visit on this day.)");
+                decision= sc2.nextInt();
+                if (decision>0)
+                {
+                    itineraryFinal[i]= attractionsChennai[(decision-1)];
+                }
+                else
+                {
+                    itineraryFinal[i]= ("Nothing is planned with Delfino Travel Agency for this day.");
+                }
+            }
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        
+        System.out.println("Mr./Mrs./ Ms. "+name+", the final itinerary is:");
+        for (int i=0; i<duration; i++)
+        {
+            System.out.println();
+            System.out.println("DAY "+(i+1)+" :   ");
+            System.out.print(itineraryFinal[i]);
+            System.out.println();
+        }
+    }
+}
