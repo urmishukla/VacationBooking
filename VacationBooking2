@@ -1,0 +1,236 @@
+import java.util.*;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+public class VacationBooking
+{
+    public static Scanner sc;
+    public static Scanner sc2;
+    
+    public static void main ()
+    {
+        int modeOfTransport=0;
+        int modeOfTransport2=0;
+        String country="";
+        String city="";
+        int noOfTickets=0;
+        
+        System.out.println("DELFINO TRAVEL AGENCY:");
+        System.out.println("South India-based travel agency. Offering transportation and hotel booking for tourism and traveling in South");
+        System.out.println("India's 4 biggest cities(Bengaluru, Pondicherry, Chennai, and Hyderabad. Offering service worldwide.");
+        System.out.println("Please enter your name.");
+        sc = new Scanner (System.in);
+        String name= sc.nextLine();
+        System.out.println("Please enter your country.");
+        country= sc.nextLine();
+        
+        JFrame frame = new JFrame("Destination:");
+        frame.setVisible(true);
+        frame.setSize(500, 500);
+        frame.setLocation(430, 100);
+        JPanel panel = new JPanel();
+        frame.add(panel);
+        JLabel label = new JLabel("Please enter the city you'd like to visit.");
+        label.setVisible(true);
+        panel.add(label);
+        String ar[]={"Bengaluru", "Hyderabad", "Chennai", "Pondicherry"};
+        final JComboBox<String> comboBox = new JComboBox<String>(ar);
+        comboBox.setVisible(true);
+        panel.add(comboBox);
+        JButton button1 = new JButton("OK.");
+        panel.add(button1);
+        
+        String city2 = comboBox.getItemAt(comboBox.getSelectedIndex());  
+        label.setText(city2);  
+        
+        sc2= new Scanner (System.in);
+        System.out.println("Please enter the number of members that will be coming on this trip.");
+        int numOfPeople= sc2.nextInt();
+        System.out.println("Are you booking this vacation internationally, from a location outside India (1), or from India itself(2)? Please enter the corresponding numbers.");
+        int typeOfTrip= sc.nextInt();
+        
+        if (typeOfTrip==1)
+        {
+            System.out.println("Please enter the corresponding number of your preferred mode of transport, for your arrival: flight(1), cruise(5), train(4).");
+            modeOfTransport= sc2.nextInt();
+        }
+        else if (typeOfTrip==2)
+        {
+            System.out.println("Please enter the corresponding number of your preferred mode of transport, for your arrival: flight(1), bus(2), car(3), train(4).");
+            modeOfTransport= sc2.nextInt();
+        }
+        
+        switch (modeOfTransport)
+        {
+            case 1:
+            System.out.println("How many tickets do you want to book?");
+            noOfTickets= VacationBooking.sc2.nextInt();
+            System.out.print("");
+            String holder= VacationBooking.sc.nextLine();
+            System.out.println("Which airline would you like to book?");
+            String airLine= VacationBooking.sc.nextLine();
+            System.out.println("What class of flight would you like to book?");
+            String flightClass= VacationBooking.sc.nextLine();
+            System.out.println("Which city is the airport you will be departing from located?");
+            city= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+city+"?");
+            String dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" tickets in "+flightClass+" of "+airLine+" have been booked on "+dateOfDeparture+" from "+city+" to "+city2+".");
+            break;
+            
+            case 2:
+            System.out.println("How many tickets do you want to book?");
+            noOfTickets= VacationBooking.sc2.nextInt();
+            System.out.print("");
+            holder= VacationBooking.sc.nextLine();
+            System.out.println("Which bus company would you like to book?");
+            String busCompany= VacationBooking.sc.nextLine();
+            System.out.println("Which city is the bus stop you will leave from in?");
+            city= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+city+"?");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" tickets in "+busCompany+" have been booked on "+dateOfDeparture+" from "+city+" to "+city2+".");
+            break;
+            
+            case 3:
+            System.out.println("How many cars (8 seaters) do you want to book?");
+            noOfTickets= VacationBooking.sc2.nextInt();
+            System.out.print("");
+            holder= VacationBooking.sc.nextLine();
+            System.out.println("Which city are you leaving from?");
+            city= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+city+"?");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" cars have been booked on "+dateOfDeparture+" from "+city+" to "+city2+".");
+            break;
+            
+            case 4:
+            System.out.println("How many tickets do you want to book?");
+            noOfTickets= VacationBooking.sc2.nextInt();
+            System.out.print("");
+            holder= VacationBooking.sc.nextLine();
+            System.out.println("Would you like to book an AC compartment, or a non AC compartment?");
+            String ACfacility= VacationBooking.sc.nextLine();
+            System.out.println("What class of train would you like to book?");
+            String trainClass= VacationBooking.sc.nextLine();
+            System.out.println("Which city is the train station you will be departing from located?");
+            city= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+city+"?");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" tickets in "+trainClass+" of "+ACfacility+" have been booked on "+dateOfDeparture+" from "+city+" to "+city2+".");
+            break;
+            
+            case 5:
+            System.out.println("How many tickets do you want to book?");
+            noOfTickets= VacationBooking.sc2.nextInt();
+            System.out.print("");
+            holder= VacationBooking.sc.nextLine();
+            System.out.println("Which cruise line would you like to book?");
+            String cruiseLine= VacationBooking.sc.nextLine();
+            System.out.println("What class would you like to book?");
+            String cruiseClass= VacationBooking.sc.nextLine();
+            System.out.println("Which city will you be departing from?");
+            city= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+city+"?");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" tickets in "+cruiseClass+" of "+cruiseLine+" have been booked on "+dateOfDeparture+" from "+city+" to "+city2+".");
+            break;
+            
+            default:
+            System.out.println("Invalid entry.");
+        }
+        
+        if (typeOfTrip==1)
+        {
+            System.out.println("Please enter the corresponding number of your preferred mode of transport, for your return: flight(1), cruise(5), train(4).");
+            modeOfTransport2= sc2.nextInt();
+        }
+        else if (typeOfTrip==2)
+        {
+            System.out.println("Please enter the corresponding number of your preferred mode of transport, for your return: flight(1), bus(2), car(3), train(4).");
+            modeOfTransport2= sc2.nextInt();
+        }
+        
+        switch (modeOfTransport2)
+        {
+            case 1:
+            System.out.println("Which airline would you like to book?");
+            String airLine= VacationBooking.sc.nextLine();
+            System.out.println("What class of flight would you like to book?");
+            String flightClass= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+city2+"?");
+            String dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" return flight(s) in "+airLine+" in "+flightClass+" on "+dateOfDeparture+" from "+city2+" to "+city+" have been booked.");
+            break;
+            
+            case 2:
+            System.out.println("Which bus company would you like to book?");
+            String busCompany= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+city2+"?");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" return flight(s) in "+busCompany+" on "+dateOfDeparture+" from "+city2+" to "+city+" have been booked.");
+            break;
+            
+            case 3:
+            System.out.println("What date would you like to depart from "+city+"?");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" return car(s) from "+city2+" to "+city+" on "+dateOfDeparture+" have been booked.");
+            break;
+            
+            case 4:
+            System.out.println("Would you like to book an AC compartment, or a non AC compartment?");
+            String ACfacility= VacationBooking.sc.nextLine();
+            System.out.println("What class of train would you like to book?");
+            String trainClass= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+city+"?");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" return train ticket(s) from "+city2+" to "+city+" with "+ACfacility+" in "+trainClass+" on "+dateOfDeparture+" have been booked.");
+            break;
+            
+            case 5:
+            System.out.println("Which cruise line would you like to book?");
+            String cruiseLine= VacationBooking.sc.nextLine();
+            System.out.println("What class would you like to book?");
+            String cruiseClass= VacationBooking.sc.nextLine();
+            System.out.println("What date would you like to depart from "+city+"?");
+            dateOfDeparture= VacationBooking.sc.nextLine();
+            System.out.println(noOfTickets+" return cruise seat(s) from "+city2+" to "+city+" have been booked.");
+            break;
+            
+            default:
+            System.out.println("Invalid entry.");
+        }
+        
+        System.out.println("How many days do you require to stay at the hotel?");
+        //sc= new Scanner (System.in);
+        String noOfDays= VacationBooking.sc.nextLine();
+        System.out.println("How many rooms do you require? (each room has a double bed).");
+        String noOfRooms= VacationBooking.sc.nextLine();
+        
+        System.out.println("Which hotel do you want to stay in?");
+        String hotelName= VacationBooking.sc.nextLine();
+        System.out.println("Do you want air-conditioned rooms?");
+        String ACfacility= VacationBooking.sc.nextLine();
+        System.out.println("Do you want room service to be provided?");
+        String roomService= VacationBooking.sc.nextLine();
+        System.out.println("Do you want meals to be provided by the hotel?");
+        String meals= VacationBooking.sc.nextLine();
+        
+        System.out.print(noOfRooms+" rooms with ");
+        if (ACfacility.equals("yes"))
+        {
+            System.out.print("air conditioning, ");
+        }
+        if (roomService.equals("yes"))
+        {
+            System.out.print("room service, ");
+        }
+        if (meals.equals("yes"))
+        {
+            System.out.print("provided meals, ");
+        }
+        System.out.print("a double bed each, have been booked for "+noOfDays+" days at "+hotelName+".");
+    }
+}
